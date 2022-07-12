@@ -1,0 +1,31 @@
+{% extends "core/base.html" %}
+{% load django_bootstrap5 %}
+
+
+{% block content %}
+{{ block.super }}
+
+<div class="conteiner px-3">
+
+        <p><tr>
+            <h3><b>Мой профиль</b></h3></tr>
+
+    <b>{{ user.first_name }} {{ user.last_name }}</b> <br>
+
+            <b>Nickname: </b> {{ user.username }} <br>
+            <b>email: </b>{{ user.email }}<br>
+            <b>phone: </b>{{ user.phone }}<br>
+            <b>bonus_coin: </b>{{ user.bonus_coin }}<br></p>
+
+</div>
+<div class="conteiner px-4">
+
+        <a href="/profile/edit/{{ user.id }}" class="text-dark">Редактировать профиль</a><br>
+        <a href="#" class="text-dark">Посмотреть мои заказы</a><br>
+        <a href="/logout/" class="text-dark">Выход</a><br>
+
+
+</div>
+
+
+{% endblock content %}
