@@ -28,6 +28,7 @@ urlpatterns = [
     path('registration/', views.RegistrationView.as_view()),
     path('profile/<int:id>', views.ProfileView.as_view()),
     path('profile/edit/<int:id>', views.EditProfileView.as_view()),
+    path('product/<int:id>', views.ProductPageView.as_view()),
 
 ]
 

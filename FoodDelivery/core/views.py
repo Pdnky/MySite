@@ -66,4 +66,16 @@ class EditProfileView(UpdateView):
         return get_object_or_404(get_user_model(), pk=self.request.user.id)
 
 
+class ProductPageView(TemplateView):
+    template_name = 'core/product-page.html'
+    model = Product
+    pk_url_kwarg = 'id'
+
+    def get_user_data(self, **kwargs):
+        context = super(ProductPageView, self).get_user_data(**kwargs)
+        context.update({
+            'title': 'sdfsdfsdfsdfsdfsfds'
+        })
+        return context
+
 # Create your views here.

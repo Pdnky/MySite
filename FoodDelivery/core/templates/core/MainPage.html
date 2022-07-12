@@ -1,20 +1,31 @@
 {% extends 'core/base.html' %}
 
+{% block title %}
+{{ title }}
+{% endblock title %}
+
 {% block content %}
 {{ block.super }}
+<div class="album py-5 bg-light">
+<div class="container">
 
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 {% for product in products %}
+  <div class="col">
+    <div class="card" style="width: 19rem;">
+      <img src=" {{ product.image.url }} " height="240" class="card-img-top"  alt="{{ product.product.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.product.name }}</h5>
+          <p class="card-text">{{ product.product.compound|truncatewords:15 }}</p>
+          <h5 class="card-title">{{ product.product.price }} UAH</h5>
+          <a href="/product/{{ product.product.id }}" class="btn btn-primary">Подробнее</a>
+        </div>
+    </div>
 
-<div class="card" style="width: 15rem;">
-  <img src=" {{ product.image.url }} " height="240" class="card-img-top"  alt="{{ product.product.name }}">
-  <div class="card-body">
-    <h5 class="card-title">{{ product.product.name }}</h5>
-    <p class="card-text">{{ product.product.compound|truncatewords:15 }}</p>
-    <h5 class="card-title">{{ product.product.price }} UAH</h5>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+
   </div>
+  {% endfor %}
 </div>
-
-{% endfor %}
-
+</div>
+</div>
 {% endblock %}
